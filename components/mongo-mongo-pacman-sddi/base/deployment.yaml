@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: mongo-mongo-pacman-sddi
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: mongo-mongo-pacman-sddi
+    app.kubernetes.io/part-of: pacman
+  name: mongo-mongo-pacman-sddi
+  namespace: user1-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: mongo-mongo-pacman-sddi
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: mongo-mongo-pacman-sddi
+    spec:
+      containers:
+      - image: quay.io/jduimovich0/user-workload:NA_QT-mongo-mongo-pacman-sddi
+        imagePullPolicy: Always
+        name: container-image
+        ports:
+        - containerPort: 27017
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 512Mi
+status: {}
