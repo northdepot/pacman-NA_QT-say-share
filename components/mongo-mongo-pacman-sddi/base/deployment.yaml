@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: mongo-mongo-pacman-sddi
     spec:
       containers:
-      - image: quay.io/jduimovich0/user-workload:NA_QT-mongo-mongo-pacman-sddi
+      - image: quay.io/jduimovich0/user-workload@sha256:830d453ecdd43266ba20332c6d63d83b87bc6cc417a6b448c5b31abd081d9e24
         imagePullPolicy: Always
         name: container-image
         ports:
